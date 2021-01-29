@@ -6,9 +6,9 @@ int main(int argc, char* argv[]) {
 
 
 	//engine = new CoreEngine;
-	if (!engine->OnCreate("ZhiyiYao GAME258", 800, 600)) {
-		//delete engine;
-		//engine = nullptr;
+	//if (!engine->OnCreate("Demo", 800, 600)){
+	if (!CoreEngine::GetInstance()->OnCreate("ZhiyiYao GAME258", 800, 600)) {
+		std::cout << "Engine failed to initialize" << std::endl;
 		return 0;
 	}
 

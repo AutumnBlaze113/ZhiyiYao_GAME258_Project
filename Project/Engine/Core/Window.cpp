@@ -27,7 +27,7 @@ bool Window::OnCreate(std::string name_, int width_, int height_)
 	window = SDL_CreateWindow(name_.c_str(),
 		SDL_WINDOWPOS_CENTERED,// x
 		SDL_WINDOWPOS_CENTERED,// y 
-		//(it will laught at the center of the screen)
+		//(it will appear at the center of the screen)
 		width,
 		height,
 		SDL_WINDOW_OPENGL);
@@ -75,7 +75,7 @@ SDL_Window* Window::GetWindow() const
 }
 
 void Window::SetPreAttributes()
-{// set before create a window
+{
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	//get rid of any deprecated functions
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);

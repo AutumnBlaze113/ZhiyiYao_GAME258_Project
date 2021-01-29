@@ -19,7 +19,9 @@ public:
 	SDL_Window* GetWindow() const;
 
 private:
+	// set before create a window
 	void SetPreAttributes();
+
 	void SetPostAttributes();
 
 	int width;

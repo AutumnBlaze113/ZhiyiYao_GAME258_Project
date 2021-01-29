@@ -11,7 +11,7 @@ CoreEngine::~CoreEngine()
 }
 
 CoreEngine* CoreEngine::GetInstance()
-{// call it when you want to get access to anything public 
+{
 	if (engineInstance.get() == nullptr) {
 		engineInstance.reset(new CoreEngine);// call construction
 	}
