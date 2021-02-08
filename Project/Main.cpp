@@ -1,9 +1,10 @@
 #include "Engine/Core/CoreEngine.h"
+#include "Game/Game1.h"
 
 CoreEngine* engine;
 
 int main(int argc, char* argv[]) {
-
+	CoreEngine::GetInstance()->SetGameInterface(new Game1);
 
 	//engine = new CoreEngine;
 	//if (!engine->OnCreate("Demo", 800, 600)){

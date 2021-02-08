@@ -1,0 +1,3 @@
+[INFO]: Start Scene created successfully in: StartScene.cpp on line: 14
+[INFO]: Everything worked in: CoreEngine.cpp on line: 40
+[INFO]: Game Scene created successfully in: GameScene.cpp on line: 13

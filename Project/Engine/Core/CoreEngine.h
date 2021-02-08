@@ -3,6 +3,10 @@
 
 
 #include "Window.h"
+#include "Timer.h"
+#include "Debug.h"
+#include "GameInterface.h"
+#include "Scene.h"
 #include<memory>//for smart pointers
 
 class CoreEngine
@@ -21,7 +25,13 @@ public:// Singleton Engine
 	//Create a window
 	bool OnCreate(std::string name_, int width_, int height_);
 	void Run();
-	bool GetIsRunning();
+	void Exit();
+
+	bool GetIsRunning() const;
+	int GetCurrentScene() const;
+
+	void SetGameInterface(GameInterface* gameInterface_);
+	void SetCurrentScene(int sceneNum_);
 
 private:
 	CoreEngine();
@@ -38,6 +48,13 @@ private:
 
 	Window* window;
 	bool isRunning;
+
+	Timer timer;
+	unsigned int fps;
+
+	GameInterface* gameInterface;
+
+	int currentSceneNum;
 };
 
 
