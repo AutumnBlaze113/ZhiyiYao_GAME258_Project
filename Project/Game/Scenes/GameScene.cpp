@@ -16,7 +16,7 @@ bool GameScene::OnCreate()
 
 void GameScene::Update(const float deltaTime_)
 {
-	std::cout << "GameScene:  [" << deltaTime_ << "]" <<std::endl;// print out time
+	std::cout << "GameScene:  " << deltaTime_ << "\n" <<std::endl;// print out time
 }       
 
 void GameScene::Render()
