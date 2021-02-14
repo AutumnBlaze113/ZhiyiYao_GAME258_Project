@@ -9,6 +9,8 @@
 #include "Scene.h"
 #include<memory>//for smart pointers
 
+#include "../Rendering/3D/GameObject.h"
+
 class CoreEngine
 {
 public:// Singleton Engine
