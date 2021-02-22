@@ -1,4 +1,4 @@
-#include "Timer.h"
+ #include "Timer.h"
 
 Timer::Timer() : prevTicks(0), currentTicks(0) 
 {

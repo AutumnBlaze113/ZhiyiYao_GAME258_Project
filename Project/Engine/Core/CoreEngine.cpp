@@ -29,10 +29,14 @@ bool CoreEngine::OnCreate(std::string name_, int width_, int height_)
 		return isRunning = false;
 	}
 
+	ShaderHandler::GetInstance()->CreateProgram("colourShader",
+		"Engine/Shaders/ColourVertexShader.glsl",
+		"Engine/Shaders/ColourFragmentShader.glsl");
+
 	if (gameInterface) {
 		if (!gameInterface->OnCreate()) {
 			//std::cout << "Game failed to initialize" << std::endl;
-			Debug::Error("Game failed to initialize", "CoreEngine.cpp ", __LINE__);
+			Debug::FatalError("Game failed to initialize", "CoreEngine.cpp ", __LINE__);
 			return isRunning = false;
 		}
 	}
@@ -103,6 +107,7 @@ void CoreEngine::Render()
 
 void CoreEngine::OnDestroy()
 {
+	ShaderHandler::GetInstance()->OnDestroy();
 	delete gameInterface;
 	gameInterface = nullptr;
 

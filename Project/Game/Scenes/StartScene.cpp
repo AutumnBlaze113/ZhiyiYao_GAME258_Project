@@ -17,9 +17,10 @@ bool StartScene::OnCreate()
 
 void StartScene::Update(const float deltaTime_)
 {
+	CoreEngine::GetInstance()->SetCurrentScene(1);
 }
 
-void StartScene::Render()
+void StartScene::Render()// only for drawing !!!
 {
-	CoreEngine::GetInstance()->SetCurrentScene(1); // switch to GameScene
+	//CoreEngine::GetInstance()->SetCurrentScene(1); // switch to GameScene
 }

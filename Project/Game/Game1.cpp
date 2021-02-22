@@ -24,7 +24,7 @@ bool Game1::OnCreate()
 void Game1::Update(const float deltaTime_)
 {
 	if (currentSceneNum != CoreEngine::GetInstance()->GetCurrentScene()) {
-		BuildScene();
+		BuildScene();// make sure only be called once
 	}
 	currentScene->Update(deltaTime_);
 }

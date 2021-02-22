@@ -11,6 +11,8 @@
 
 #include "../Rendering/3D/GameObject.h"
 
+#include "../Graphics/ShaderHandler.h"
+
 class CoreEngine
 {
 public:// Singleton Engine
