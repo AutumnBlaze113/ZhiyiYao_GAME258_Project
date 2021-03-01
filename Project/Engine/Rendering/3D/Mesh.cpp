@@ -1,9 +1,10 @@
 #include "Mesh.h"
 
-Mesh::Mesh(std::vector<Vertex>& vertexList_)
-	:VAO(0), VBO(0), vertexList(std::vector<Vertex>())
+Mesh::Mesh(std::vector<Vertex>& vertexList_, GLuint shaderProgram_)
+	:VAO(0), VBO(0), vertexList(std::vector<Vertex>()), shaderProgram(0), viewLoc(0), projectionLoc(0)
 {
 	vertexList = vertexList_;
+	shaderProgram = shaderProgram_;
 	GenerateBuffers();
 }
 
@@ -15,11 +16,17 @@ Mesh::~Mesh()
 	vertexList.clear();
 }
 
-void Mesh::Render()
+void Mesh::Render(Camera* camera, glm::mat4 transform_)
 {
 	glBindVertexArray(VAO);
 
-	glDrawArrays(GL_TRIANGLES, 0, vertexList.size());
+	glEnable(GL_DEPTH_TEST);
+
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(transform_));
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera->GetView()));
+	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(camera->GetPerspective()));
+
+	glDrawArrays(GL_TRIANGLES, 0, vertexList.size());// array thing is ready, unchangeable after this line
 
 	glBindVertexArray(0);
 }
@@ -53,4 +60,7 @@ void Mesh::GenerateBuffers()
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+	modelLoc = glGetUniformLocation(shaderProgram, "model");
+	viewLoc = glGetUniformLocation(shaderProgram, "view");
+	projectionLoc = glGetUniformLocation(shaderProgram, "projection");
 }

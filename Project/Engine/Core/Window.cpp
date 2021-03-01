@@ -51,12 +51,12 @@ bool Window::OnCreate(std::string name_, int width_, int height_)
 		return false;
 	}
 
-	glEnable(GL_DEPTH_TEST);
+	
 	//std::cout << "OpenGL version: " << glGetString(GL_VER ION) << std::endl;
 	Debug::Info("OpenGL Version: " + std::string((char*)glGetString(GL_VERSION)), "Window.cpp ", __LINE__);
-	//std::string tex = "OpenGL version: ";
-	//std::string ver = (const char*)glGetString(GL_VERSION);
-	//Debug::Info(tex + ver, "Window.cpp ", __LINE__);
+	
+	glViewport(0, 0, width, height);
+
 	return true;
 }
 
