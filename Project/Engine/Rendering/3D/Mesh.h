@@ -13,12 +13,12 @@ struct Vertex {
 	glm::vec3 normal;
 	glm::vec2 textureCoordinates;
 	glm::vec3 colour;
-};
+}; // don't forget the ;
 
 class Mesh
 {
 public:
-	Mesh(std::vector<Vertex>& vertexList_, GLuint shaderProgram_);
+	Mesh(std::vector<Vertex>& vertexList_, GLuint shaderProgram_, GLuint TextureID);
 	~Mesh();
 
 	void Render(Camera* camera_, glm::mat4 transform_);
@@ -30,7 +30,10 @@ private:
 	// VBO: Vertex Buffer Objects, provides the methods to push data to the GPU
 	std::vector<Vertex> vertexList;
 	GLuint shaderProgram;
-	GLuint modelLoc, viewLoc, projectionLoc;
+	GLuint textureID;
+	GLuint modelLoc, viewLoc, projectionLoc, textureLoc;
+	GLuint viewPosition;
+	GLuint LightPos, ambient, diffuse, specular, lightColour;
 };
 
 #endif // !MESH_H

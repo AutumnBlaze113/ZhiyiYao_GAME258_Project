@@ -26,6 +26,7 @@ Camera::Camera()
 
 Camera::~Camera()
 {
+	
 }
 
 void Camera::SetPosition(glm::vec3 position_)
@@ -40,6 +41,36 @@ void Camera::SetRotation(float yaw_, float pitch_)
 	pitch = pitch_;
 	UpdateCameraVectors();
 }
+
+void Camera::AddLightSource(LightSource* LightSource_)
+{
+	light.position = LightSource_->GetPosition();
+	light.ambient = LightSource_->GetAmbient();
+	light.diffuse = LightSource_->GetDiffuse();
+	light.specular = LightSource_->GetSpecular();
+	light.colour = LightSource_->GetColour();
+}
+
+Light Camera::GetLight()
+{
+	return light;
+}
+
+/*
+void Camera::AddLightSource(LightSource* LightSource_)
+{
+	light.reserve(1);
+	light.push_back(LightSource_);
+}
+
+std::vector<Light>& Camera::GetLightSourceList()
+{
+	return light;
+}
+*/
+
+
+
 
 glm::mat4 Camera::GetView() const
 {
