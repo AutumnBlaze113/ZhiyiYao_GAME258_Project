@@ -249,7 +249,7 @@ bool GameScene::OnCreate()
 	
 	*/
 	}
-	model = new Model("./Resourses/Models/Dice.obj", "./Resourses/Materials/Dice.mtl", ShaderHandler::GetInstance()->GetShader("basicShader"));
+	model = new Model("./Resourses/Models/Apple.obj", "./Resourses/Materials/Apple.mtl", ShaderHandler::GetInstance()->GetShader("basicShader"));
 	
 	//model->SetScale(glm::vec3(0.5f));
 	shape = new GameObject(model);

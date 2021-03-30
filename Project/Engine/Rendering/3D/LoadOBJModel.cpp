@@ -97,22 +97,20 @@ void LoadOBJModel::LoadModel(const std::string& filePath_)
 		else if (line.substr(0, 2) == "f ") {
 			std::string a = line;
 			std::replace(a.begin(), a.end(), '/', ' ');
-			std::stringstream f(line.substr(2));
-			unsigned int x1, y1, z1, 
-				x2, y2, z2, 
-				x3, y3, z3;
+			std::stringstream f(a.substr(2));
+			unsigned int x1, y1, z1, x2, y2, z2, x3, y3, z3;
 			f >> x1 >> y1 >> z1 >> x2 >> y2 >> z2 >> x3 >> y3 >> z3;
-			indices.push_back(x1);
-			indices.push_back(x2);
-			indices.push_back(x3);
+			indices.push_back(x1-1);// array starts at 0
+			indices.push_back(x2-1);
+			indices.push_back(x3-1);
 
-			textureIndices.push_back(y1);
-			textureIndices.push_back(y2);
-			textureIndices.push_back(y3);
+			textureIndices.push_back(y1 - 1);
+			textureIndices.push_back(y2 - 1);
+			textureIndices.push_back(y3 - 1);
 
-			normalIndices.push_back(z1);
-			normalIndices.push_back(z2);
-			normalIndices.push_back(z3);
+			normalIndices.push_back(z1 - 1);
+			normalIndices.push_back(z2 - 1);
+			normalIndices.push_back(z3 - 1);
 		}
 
 		//NEW MESH
