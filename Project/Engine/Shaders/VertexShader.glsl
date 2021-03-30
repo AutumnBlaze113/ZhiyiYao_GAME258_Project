@@ -16,12 +16,13 @@ uniform mat4 projection;
 
 void main(){
 
-	Normal = mat3(transpose(inverse(model))) * normal; 
-	FragPosition = vec3(model * vec4(position, 1.0f));
+	
 	gl_Position = projection * view * model * vec4(position, 1.0f); //main role 
 	Colour = colour;
-	TexCoords = texCoords;
-
+	//TexCoords = texCoords;
+	TexCoords = vec2(texCoords.x, 1.0 - texCoords.y);
+	Normal = mat3(transpose(inverse(model))) * normal; 
+	FragPosition = vec3(model * vec4(position, 1.0f));
 	//make this Normal out variable equal the 
 	//inverse transpose of the model matrix multiplied by the normal data from the layout
 	//inverse and transpose

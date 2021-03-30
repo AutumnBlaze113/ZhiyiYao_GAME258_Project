@@ -1,5 +1,5 @@
 #ifndef TEXTUREHANDLER_H
-#define TEXTIREHANDLER_H
+#define TEXTUREHANDLER_H
 
 #include <memory>
 #include <string>
