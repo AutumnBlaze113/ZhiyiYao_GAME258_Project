@@ -1,4 +1,4 @@
 [INFO]: OpenGL Version: 4.5.0 NVIDIA 442.23 in: Window.cpp on line: 56
 [INFO]: Start Scene created successfully in: StartScene.cpp on line: 14
 [INFO]: Everything worked in: CoreEngine.cpp on line: 47
-[INFO]: Game Scene created successfully in: GameScene.cpp on line: 17
+[INFO]: Game Scene created successfully in: GameScene.cpp on line: 13

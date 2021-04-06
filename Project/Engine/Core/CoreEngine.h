@@ -7,12 +7,16 @@
 #include "Debug.h"
 #include "GameInterface.h"
 #include "Scene.h"
+
 #include<memory>//for smart pointers
+
+#include "../Rendering/SceneGraph.h"
 
 #include "../Rendering/3D/GameObject.h"
 
 #include "../Graphics/ShaderHandler.h"
 #include "../Graphics/TextureHandler.h"
+#include "../Graphics/MaterialHandler.h"
 
 #include "../Camera/Camera.h"
 #include "../FX/LightSource.h"
