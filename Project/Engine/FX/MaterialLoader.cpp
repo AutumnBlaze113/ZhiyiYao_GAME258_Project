@@ -29,10 +29,7 @@ void MaterialLoader::LoadMaterial(std::string filePath_)
 
 		//SHININESS
 		if (line.substr(0, 4) == "	Ns ") {
-			if (m.diffuseMap != 0) {
-				MaterialHandler::GetInstance()->AddMaterial(m);
-				m = Material();
-			}
+			
 			std::stringstream v(line.substr(4));
 			float x; 
 			v >> x;
@@ -41,10 +38,7 @@ void MaterialLoader::LoadMaterial(std::string filePath_)
 
 		//TRANSPARENCY
 		if (line.substr(0, 3) == "	d ") {
-			if (m.diffuseMap != 0) {
-				MaterialHandler::GetInstance()->AddMaterial(m);
-				m = Material();
-			}
+			
 			std::stringstream v(line.substr(3));
 			float x;
 			v >> x;
@@ -53,10 +47,7 @@ void MaterialLoader::LoadMaterial(std::string filePath_)
 
 		//AMBIENT
 		if (line.substr(0, 4) == "	Ka ") {
-			if (m.diffuseMap != 0) {
-				MaterialHandler::GetInstance()->AddMaterial(m);
-				m = Material();
-			}
+			
 			std::stringstream v(line.substr(4));
 			float x, y, z;
 			v >> x >> y >> z;
@@ -66,10 +57,7 @@ void MaterialLoader::LoadMaterial(std::string filePath_)
 
 		//DIFFUSE
 		if (line.substr(0, 4) == "	Kd ") {
-			if (m.diffuseMap != 0) {
-				MaterialHandler::GetInstance()->AddMaterial(m);
-				m = Material();
-			}
+			
 			std::stringstream v(line.substr(4));
 			float x, y, z;
 			v >> x >> y >> z;
@@ -78,10 +66,7 @@ void MaterialLoader::LoadMaterial(std::string filePath_)
 
 		//SPECULAR
 		if (line.substr(0, 4) == "	Ks ") {
-			if (m.diffuseMap != 0) {
-				MaterialHandler::GetInstance()->AddMaterial(m);
-				m = Material();
-			}
+			
 			std::stringstream v(line.substr(4));
 			float x, y, z;
 			v >> x >> y >> z;
