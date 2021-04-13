@@ -32,6 +32,9 @@ public:
 	glm::mat4 GetOrthographic() const;
 	glm::vec3 GetPosition() const;
 
+	void ProcessMouseMovement(glm::vec2 offset_);
+	void ProcessMouseZoom(int y_);
+
 private:
 	void UpdateCameraVectors();
 	glm::vec3 position;

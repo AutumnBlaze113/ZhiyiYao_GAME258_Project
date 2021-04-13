@@ -35,6 +35,11 @@ std::vector<SubMesh> LoadOBJModel::GetSubMesh()
 	return subMeshes;
 }
 
+BoundingBox LoadOBJModel::GetBoundingBox() const
+{
+	return boundingBox;
+}
+
 void LoadOBJModel::PostProcessing()
 {
 	for (unsigned int i = 0; i < indices.size(); i++) {
@@ -66,6 +71,8 @@ void LoadOBJModel::LoadModel(const std::string& filePath_)
 		Debug::Error("Cannot open OBJ file: " + filePath_, "LoadOBJModel.cpp", __LINE__);
 		return;
 	}
+	boundingBox.maxVert = glm::vec3(-1.0f, -1.0f, -1.0f);
+	boundingBox.minVert = glm::vec3(1.0f, 1.0f, 1.0f);
 	std::string line;
 
 	while (std::getline(in, line)) {
@@ -75,6 +82,27 @@ void LoadOBJModel::LoadModel(const std::string& filePath_)
 			float x, y, z;
 			v >> x >> y >> z;
 			vertices.push_back(glm::vec3(x, y, z));
+
+			if (x > boundingBox.maxVert.x) {
+				boundingBox.maxVert.x = x;
+			}
+			if (y > boundingBox.maxVert.y) {
+				boundingBox.maxVert.y = y;
+			}
+			if (z > boundingBox.maxVert.z) {
+				boundingBox.maxVert.z = z;
+			}
+
+			if (x < boundingBox.minVert.x) {
+				boundingBox.minVert.x = x;
+			}
+			if (y < boundingBox.minVert.y) {
+				boundingBox.minVert.y = y;
+			}
+			if (z < boundingBox.minVert.z) {
+				boundingBox.minVert.z = z;
+			}
+			
 		}
 
 		//NORMAL DATA

@@ -92,6 +92,39 @@ glm::vec3 Camera::GetPosition() const
 	return position;
 }
 
+void Camera::ProcessMouseMovement(glm::vec2 offset_)
+{
+	offset_ *= 0.05f; //sensitivity
+
+	yaw += offset_.x;
+	pitch += offset_.y;
+
+	if (pitch > 89.0f) {
+		pitch = 89.0f;
+	}
+
+	if (pitch < -89.0f) {
+		pitch = -89.0f;
+	}
+
+	if (yaw < 0.0f){
+		yaw += 360.0f;
+	}
+	if (yaw > 360.0f) {
+		yaw -= 360.0f;
+	}
+
+	UpdateCameraVectors();
+}
+
+void Camera::ProcessMouseZoom(int y_)
+{
+	if (y_ < 0 || y_ > 0) {
+		position += static_cast<float>(y_) * (forward * 2.0f);
+	}
+	UpdateCameraVectors();
+}
+
 void Camera::UpdateCameraVectors()
 {
 	forward.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));

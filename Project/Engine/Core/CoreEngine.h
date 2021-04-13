@@ -21,6 +21,8 @@
 #include "../Camera/Camera.h"
 #include "../FX/LightSource.h"
 
+#include "../Events/EventListener.h"
+
 class CoreEngine
 {
 public:// Singleton Engine
@@ -48,6 +50,12 @@ public:// Singleton Engine
 	void SetGameInterface(GameInterface* gameInterface_);
 	void SetCurrentScene(int sceneNum_);
 	void SetCamera(Camera* camera_);
+
+
+	void NotifyOfMousePressed(glm::ivec2 mouse_, int buttonType_);
+	void NotifyOfMouseReleased(glm::ivec2 mouse_, int buttonType_);
+	void NotifyOfMouseMove(glm::ivec2 mouse_);
+	void NotifyOfMouseScroll(int y_);
 
 private:
 	CoreEngine();
