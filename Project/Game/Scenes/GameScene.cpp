@@ -17,14 +17,8 @@ bool GameScene::OnCreate()
 	CoreEngine::GetInstance()->GetCamera()->AddLightSource(new LightSource(glm::vec3(0.0f, 0.0f, 2.0f), 
 		0.1f, 0.5f, 0.5f, 
 		glm::vec3(1.0f, 1.0f, 1.0f)));
-	/*
-	//TextureHandler::GetInstance()->CreateTexture("CheckerboardTexture",
-	//	"./Resources/Textures/CheckerboardTexture.png");
-
-	Vertex v;
-	std::vector<Vertex> vertexList;
-	vertexList.reserve(36);
-	*/
+	
+	CollisionHandler::GetInstance()->OnCreate();
 	{/*
 	
 		v.position = glm::vec3(-0.5f, -0.5f, -0.5f);

@@ -22,6 +22,11 @@ public:
 
 	void SetPosition(glm::vec3 position_);
 	void SetRotation(float yaw_, float pitch_);
+
+	//Frustum GetPerspectiveFrustum() const;
+	float GetNearPlane() const;
+	float GetFarPlane() const;
+
 	void AddLightSource(LightSource* LightSource_);
 	//std::vector<LightSource>& GetLightSourceList();
 	Light GetLight();

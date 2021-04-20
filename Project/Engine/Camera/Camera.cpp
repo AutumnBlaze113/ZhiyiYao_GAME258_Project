@@ -82,6 +82,16 @@ glm::mat4 Camera::GetPerspective() const
 	return perspective;
 }
 
+float Camera::GetNearPlane() const
+{
+	return nearPlane;
+}
+
+float Camera::GetFarPlane() const
+{
+	return farPlane;
+}
+
 glm::mat4 Camera::GetOrthographic() const
 {
 	return orthographic;
