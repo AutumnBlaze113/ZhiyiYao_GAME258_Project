@@ -3,7 +3,7 @@
 
 CoreEngine* engine;
 
- int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
 	CoreEngine::GetInstance()->SetGameInterface(new Game1);
 
 	//engine = new CoreEngine;

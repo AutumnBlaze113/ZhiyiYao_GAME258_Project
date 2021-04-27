@@ -1,4 +1,4 @@
-#include "GameScene.h"
+ #include "GameScene.h"
 
 GameScene::GameScene() 
 {
@@ -18,7 +18,7 @@ bool GameScene::OnCreate()
 		0.1f, 0.5f, 0.5f, 
 		glm::vec3(1.0f, 1.0f, 1.0f)));
 	
-	CollisionHandler::GetInstance()->OnCreate();
+	CollisionHandler::GetInstance()->OnCreate(100.0f);
 	{/*
 	
 		v.position = glm::vec3(-0.5f, -0.5f, -0.5f);
